@@ -7,15 +7,7 @@
 Parameters* PUBLIC parameters_create(int argc, char ** argv)
 {
     Parameters* parameters = malloc(sizeof(Parameters));
-    if (argc > 1)
-    {
-        parameters->file = fill_str(argv[1]);
-    }
-    else
-    {
-        parameters->file = fill_str("input.js");
-    }
-    
+    parameters->file = fill_str( argc > 1 ? argv[1] : "input.js" );
     parameters->language = fill_str("js");
     parameters->output_file = fill_str("report.json");
     return parameters;
