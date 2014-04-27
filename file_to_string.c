@@ -20,8 +20,9 @@ PUBLIC char* file_to_string(char* path)
     
     input_file_size = ftell(input_file);
     rewind(input_file);
-    file_contents = malloc(sizeof(char) * input_file_size);
+    file_contents = malloc(sizeof(char) * (input_file_size+1));
     fread(file_contents, sizeof(char), input_file_size, input_file);
+    file_contents[input_file_size] = 0;
     
     fclose(input_file);
     

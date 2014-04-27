@@ -8,6 +8,7 @@
 
 Parameters* parameters = NULL;
 char* file_contents = NULL;
+Parser* parser = NULL;
 
 
 void clean(void)
@@ -17,6 +18,9 @@ void clean(void)
     
     if (parameters)
         parameters_free(parameters);
+    
+    if (parser)
+        parser_free(parser);
 }
 
 
@@ -31,7 +35,9 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
     
-    printf("%s\n", file_contents);
+    parser = parser_create();
+    
+    parser_parse(parser, file_contents);
     
     clean();
     

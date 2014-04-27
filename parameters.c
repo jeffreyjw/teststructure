@@ -2,9 +2,8 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <argp.h>
 
-Parameters* PUBLIC parameters_create(int argc, char ** argv)
+PUBLIC Parameters* parameters_create(int argc, char ** argv)
 {
     Parameters* parameters = malloc(sizeof(Parameters));
     parameters->file = fill_str( argc > 1 ? argv[1] : "input.js" );
@@ -21,7 +20,7 @@ PRIVATE char* fill_str(char* from)
 }
 
 
-void PUBLIC parameters_free(Parameters* parameters)
+PUBLIC void parameters_free(Parameters* parameters)
 {
     free(parameters->file);
     free(parameters->language);
